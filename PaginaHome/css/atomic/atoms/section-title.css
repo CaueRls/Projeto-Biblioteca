@@ -1,0 +1,11 @@
+/* css/atomic/atoms/section-title.css */
+.section-title {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    text-align: center;
+    padding: 10px 0;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 40px;
+}

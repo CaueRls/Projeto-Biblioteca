@@ -1,0 +1,25 @@
+/* css/style.css */
+
+/* 1. VARIÁVEIS */
+@import url('./atomic/variables.css');
+
+/* 2. ÁTOMOS */
+@import url('./atomic/atoms/global.css');
+@import url('./atomic/atoms/button.css');
+@import url('./atomic/atoms/section-title.css');
+@import url('./atomic/atoms/slider.css');
+
+/* 3. MOLÉCULAS */
+@import url('./atomic/molecules/search-bar.css');
+@import url('./atomic/molecules/user-actions.css');
+@import url('./atomic/molecules/book-card.css'); 
+@import url('./atomic/molecules/social-links.css');
+@import url('./atomic/molecules/hamburger-menu.css');
+
+/* 4. ORGANISMOS */
+@import url('./atomic/organisms/header.css');
+@import url('./atomic/organisms/nav.css');
+@import url('./atomic/organisms/book-section.css');
+@import url('./atomic/organisms/hero-carousel.css');
+@import url('./atomic/organisms/footer.css');
+@import url('./atomic/organisms/header-wrapper.css');
