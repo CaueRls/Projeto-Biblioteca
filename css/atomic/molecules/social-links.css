@@ -1,0 +1,27 @@
+/* css/atomic/molecules/social-links.css */
+
+.social-links {
+    display: flex;
+    gap: 15px; /* Espaço entre os ícones */
+    padding: 0;
+    list-style-type: none;
+}
+
+.social-links a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: var(--color-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+}
