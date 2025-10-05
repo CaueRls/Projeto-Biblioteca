@@ -1,0 +1,39 @@
+/* css/atomic/molecules/user-actions.css */
+
+.user-actions {
+    display: flex;
+    gap: 20px;
+}
+
+.user-actions a {
+    color: var(--color-white);
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.user-actions a:hover {
+    color: var(--color-secondary);
+}
+
+/* --- CONTROLE DE VISIBILIDADE --- */
+
+/* Por padrão (desktop), escondemos a versão mobile */
+.mobile-only {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    /* Em telas pequenas, escondemos a versão desktop */
+    .desktop-only {
+        display: none;
+    }
+
+    /* E mostramos a versão mobile */
+    .mobile-only {
+        display: flex; /* Usamos flex para alinhar os ícones */
+        justify-content: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 20px;
+        margin-top: 20px;
+    }
+}

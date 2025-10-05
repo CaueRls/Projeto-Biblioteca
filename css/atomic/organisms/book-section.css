@@ -1,0 +1,5 @@
+/* css/atomic/organisms/book-section.css */
+.book-section {
+    background-color: var(--color-light-gray);
+    padding: 40px 0;
+}
