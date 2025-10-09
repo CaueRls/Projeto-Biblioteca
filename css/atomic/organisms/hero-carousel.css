@@ -1,0 +1,75 @@
+/* css/atomic/organisms/hero-carousel.css */
+
+.hero-carousel {
+    background-color: var(--color-light-gray);
+    padding: 60px 0; /* Ajustamos o padding para se adaptar ao conteúdo */
+    overflow: hidden; /* Garante que nada saia dos limites */
+}
+
+.carousel-slide {
+    display: flex;
+    justify-content: space-around; /* Espaça o texto e a imagem */
+    align-items: center;
+    gap: 40px; /* Espaço entre texto e imagem */
+}
+
+/* --- Lado do Conteúdo (Texto) --- */
+.slide-content {
+    max-width: 50%; /* Limita a largura do texto */
+    flex: 1; /* Permite que o conteúdo cresça e ocupe o espaço */
+}
+
+.slide-title {
+    font-size: 3rem; /* Título bem grande e chamativo */
+    font-weight: bold;
+    color: var(--color-primary); /* Usando nossa cor principal */
+    margin-bottom: 20px;
+}
+
+.slide-description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* O botão já tem o estilo do nosso átomo .btn, então não precisa de muito aqui */
+
+/* --- Lado da Imagem --- */
+.slide-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide-image img {
+    max-width: 300px; /* Define um tamanho máximo para a imagem */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    .carousel-slide {
+        flex-direction: column; /* Empilha o texto sobre a imagem */
+        text-align: center; /* Centraliza o texto */
+    }
+
+    .slide-content {
+        max-width: 100%; /* Permite que o texto ocupe toda a largura */
+        order: 2; /* Coloca o texto DEPOIS da imagem */
+    }
+
+    .slide-image {
+        order: 1; /* Coloca a imagem ANTES do texto */
+        margin-bottom: 30px;
+    }
+
+    .slide-title {
+        font-size: 2.5rem; /* Diminui um pouco o título */
+    }
+
+    .slide-image img {
+        max-width: 250px; /* Diminui um pouco a imagem */
+    }
+}
