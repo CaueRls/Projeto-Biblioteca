@@ -56,39 +56,55 @@
         </nav>
 
     </div>
-
+    
     <main class="container">
-            <div class="product-page-title">
-                <h1>Produto</h1>
+    
+        <div class="page-title">
+            <h1>Produto</h1>
+        </div>
+    
+        <section class="product-card">
+            
+            <div class="product-media">
+                
+                <div class="product-media__main-image-container">
+                    <button class="product-media__arrow product-media__arrow--left">
+                        <i class="fas fa-chevron-left"></i> 
+                    </button>
+                    <div class="product-media__main-image-placeholder">
+                            <img src="https://m.media-amazon.com/images/I/81MoknVer8L._SY466_.jpg" alt="Capa do Livro"
+                            class="book-cover">
+                    </div>
+                    <button class="product-media__arrow product-media__arrow--right">
+                        <i class="fas fa-chevron-right"></i> 
+                    </button>
+                </div>
+                
+                <div class="product-media__thumbnails">
+                    <div class="product-media__thumb-placeholder">
+                        <img src="https://m.media-amazon.com/images/I/81MoknVer8L._SY466_.jpg" alt="Capa do Livro"
+                        class="book-cover">
+                    </div>
+                    <div class="product-media__thumb-placeholder">
+                        <img src="https://m.media-amazon.com/images/I/81MoknVer8L._SY466_.jpg" alt="Capa do Livro"
+                        class="book-cover">
+                    </div>
+                    <div class="product-media__thumb-placeholder">
+                        <img src="https://m.media-amazon.com/images/I/81MoknVer8L._SY466_.jpg" alt="Capa do Livro"
+                        class="book-cover">
+                    </div>
+                </div>
             </div>
-    
-            <section class="product-detail-card">
-                <div class="product-media">
-                    <div class="main-image">
-                        <button class="arrow left-arrow"><i class="fas fa-chevron-left"></i></button>
-                        <div class="image-placeholder">Imagem</div>
-                        <button class="arrow right-arrow"><i class="fas fa-chevron-right"></i></button>
-                    </div>
-                    <div class="thumbnails">
-                        <div class="thumb-placeholder">Img gen</div>
-                        <div class="thumb-placeholder">Img gen</div>
-                        <div class="thumb-placeholder">Img gen</div>
-                    </div>
-                </div>
-    
-                <div class="product-info">
-                    <h2>Título</h2>
-                    <h3>Descrição / Sinopse</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
-                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
-                    </p>
-                    <div class="price-tag">Preço</div>
-                </div>
-            </section>
-        </main>
+            
+            <div class="product-info">
+                <h2 class="product-info__title">Título</h2>
+                <h3 class="product-info__subtitle">Descrição / Sinopse</h3>
+                <p class="product-info__description">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
+                </p>
+                <div class="product-info__price-tag">Preço</div>
+            </div>
+        </section>
     </main>
 
     <footer class="main-footer">

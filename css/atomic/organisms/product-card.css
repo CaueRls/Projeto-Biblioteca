@@ -1,19 +1,27 @@
-/* Arquivo: product-card.css */
-/* Reset Básico */
+/* Arquivo: main-content.css */
+
+/* ---------------------------------- */
+/* 1. VARIÁVEIS E LAYOUT GERAL */
+/* ---------------------------------- */
+
+
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: var(--color-background-light);
 }
 
-/* Container de Conteúdo */
 .container {
+    /* Container principal da página (largura máxima) */
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
 
-/* Arquivo: page-title.css */
+/* ---------------------------------- */
+/* 2. TÍTULO DA PÁGINA ("PRODUTO") */
+/* ---------------------------------- */
 
 .page-title h1 {
     font-size: 24px;
@@ -24,24 +32,21 @@ body {
     font-weight: normal; 
 }
 
-
 /* ---------------------------------- */
-/* BLOCO PRINCIPAL: PRODUCT CARD */
+/* 3. BLOCO PRINCIPAL: PRODUCT CARD */
 /* ---------------------------------- */
 
 .product-card {
-    display: flex;
+    /* Layout padrão (desktop) é flex (horizontal) */
+    display: flex; 
     background-color: white;
-    border: 1px solid var(--color-primary-2 ); 
+    border: 1px solid var(--color-primary-2); 
     border-radius: 8px;
     padding: 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
-
-/* ---------------------------------- */
-/* ELEMENTO: PRODUCT MEDIA (IMAGENS) */
-/* ---------------------------------- */
+/* --- ELEMENTO: PRODUCT MEDIA (IMAGENS) --- */
 
 .product-media {
     flex: 1;
@@ -49,6 +54,7 @@ body {
     flex-direction: column;
     align-items: center;
     margin-right: 40px;
+    min-width: 300px;
 }
 
 .product-media__main-image-container {
@@ -64,6 +70,7 @@ body {
 .product-media__main-image-placeholder {
     width: 300px;
     height: 400px;
+    padding: 5px;
     background-color: #eee;
     display: flex;
     justify-content: center;
@@ -71,6 +78,8 @@ body {
     color: #888;
     font-size: 18px;
     border: 1px solid #ccc;
+    max-width: 100%; 
+    height: auto;
 }
 
 .product-media__arrow {
@@ -83,19 +92,22 @@ body {
     top: 50%;
     transform: translateY(-50%);
     padding: 10px;
+    z-index: 10;
 }
 
 .product-media__arrow--left { left: -40px; }
 .product-media__arrow--right { right: -40px; }
 
 .product-media__thumbnails {
+    margin: 5px;
     display: flex;
     gap: 10px;
 }
 
 .product-media__thumb-placeholder {
-    width: 70px;
-    height: 70px;
+    max-width: 3rem;
+    max-height: 3rem;
+    padding: 0,5rem;
     background-color: #eee;
     border: 1px solid #ccc;
     display: flex;
@@ -105,10 +117,7 @@ body {
     color: #888;
 }
 
-
-/* ---------------------------------- */
-/* ELEMENTO: PRODUCT INFO (TEXTO) */
-/* ---------------------------------- */
+/* --- ELEMENTO: PRODUCT INFO (TEXTO) --- */
 
 .product-info {
     flex: 2;
@@ -143,4 +152,70 @@ body {
     padding: 10px 20px;
     display: inline-block;
     border-radius: 4px;
+}
+
+/* ---------------------------------- */
+/* 4. RESPONSIVIDADE (MEDIA QUERIES) */
+/* ---------------------------------- */
+
+/* Tablet (Telas até 992px) */
+@media (max-width: 992px) {
+    .product-media {
+        margin-right: 20px;
+        min-width: 250px;
+    }
+
+    .product-media__main-image-placeholder {
+        width: 250px;
+        height: 333px;
+    }
+}
+
+
+/* Celular (Telas até 768px) */
+@media (max-width: 768px) {
+    /* Mudar o layout principal para empilhado (vertical) */
+    .product-card {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    /* Centraliza mídias e remove margem lateral */
+    .product-media {
+        margin-right: 0;
+        margin-bottom: 20px;
+        min-width: 100%; 
+    }
+
+    /* Centraliza a imagem principal */
+    .product-media__main-image-container {
+        max-width: 100%;
+        margin: 0 auto 15px;
+    }
+    
+    .product-media__main-image-placeholder {
+        max-width: 100%; 
+        width: 100%;
+        height: auto;
+        min-height: 300px;
+    }
+    
+    /* Reposiciona as setas */
+    .product-media__arrow--left { left: 0; }
+    .product-media__arrow--right { right: 0; }
+}
+
+
+/* Celular Pequeno (Telas até 480px) */
+@media (max-width: 480px) {
+    .product-media__thumbnails {
+        justify-content: center;
+        overflow-x: auto;
+        padding-bottom: 5px;
+    }
+    
+    .product-media__arrow {
+        font-size: 20px;
+        padding: 5px;
+    }
 }
