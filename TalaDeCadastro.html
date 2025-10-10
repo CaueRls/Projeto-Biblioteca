@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crie sua Conta - SENAC Livraria</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    
+    <link rel="icon" href="img/logo.svg" type="image/x-icon">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-gray-100">
+
+    <div class="header-sticky-wrapper">
+        <header class="main-header">
+            <div class="container header-container">
+                <a href="#" class="logo">
+                    <img src="/img/logo.svg" alt="Logo da Livraria">
+                </a>
+                <form class="search-bar">
+                    <input type="text" placeholder="Procurar Livros">
+                    <button type="submit" class="search-button">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+                <div class="user-actions desktop-only">
+                    <a href="#" aria-label="Minha Conta"><i class="fa-solid fa-user"></i></a>
+                    <a href="#" aria-label="Lista de Desejos"><i class="fa-solid fa-heart"></i></a>
+                    <a href="#" aria-label="Carrinho de Compras"><i class="fa-solid fa-cart-shopping"></i></a>
+                </div>
+                <button class="hamburger-menu" aria-label="Abrir Menu" aria-expanded="false">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </header>
+        <nav class="main-nav">
+            <div class="container nav-container">
+                <ul>
+                    <li><a href="#">Fantasia</a></li>
+                    <li><a href="#">Romance</a></li>
+                    <li><a href="#">Terror</a></li>
+                    <li><a href="#">Literatura</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <main class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-md w-full bg-white rounded-xl shadow-lg p-8 space-y-6">
+            
+            <div>
+                <h2 class="text-center text-3xl font-extrabold text-gray-900">
+                    Crie sua Conta
+                </h2>
+                <p class="mt-2 text-center text-sm text-gray-600">
+                    É rápido e fácil.
+                </p>
+            </div>
+
+            <form class="space-y-6" action="#" method="POST">
+                
+                <div>
+                    <label for="full-name" class="block text-sm font-medium text-gray-700">Nome Completo</label>
+                    <input id="full-name" name="name" type="text" required class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                </div>
+
+                <div>
+                    <label for="email-address" class="block text-sm font-medium text-gray-700">E-mail</label>
+                    <input id="email-address" name="email" type="email" autocomplete="email" required class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                </div>
+
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700">Senha</label>
+                    <input id="password" name="password" type="password" autocomplete="new-password" required class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                </div>
+
+                <div>
+                    <label for="password-confirm" class="block text-sm font-medium text-gray-700">Confirmar Senha</label>
+                    <input id="password-confirm" name="password_confirmation" type="password" required class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                </div>
+
+                <div>
+                    <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-300">
+                        Cadastrar
+                    </button>
+                </div>
+            </form>
+
+            <div class="text-center">
+                <p class="text-sm text-gray-600">
+                    Já tem uma conta?
+                    <a href="#" class="font-medium text-blue-600 hover:text-blue-500 hover:underline">
+                        Faça login
+                    </a>
+                </p>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="main-footer">
+        </footer>
+    <div class="sub-footer">
+        </div>
+
+    <script src="/js/header.js"></script>
+    <script src="/js/header-wrapper.js"></script>
+
+</body>
+
+</html>
