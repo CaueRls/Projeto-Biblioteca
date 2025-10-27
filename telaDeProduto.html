@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENAC</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="icon" href="img/logo.svg" type="image/x-icon">
+</head>
+
+<body>
+    <div class="header-sticky-wrapper">
+        <header class="main-header">
+            <div class="container header-container">
+                <a href="./Home.html" class="logo">
+                    <img src="/img/logo.svg" alt="Logo da Livraria">
+                </a>
+
+                <form class="search-bar">
+                    <input type="text" placeholder="Procurar Livros">
+                    <button type="submit" class="search-button">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+
+                <div class="user-actions desktop-only">
+                    <a href="./TalaDeCadastro.html" aria-label="Minha Conta"><i class="fa-solid fa-user"></i></a>
+                    <a href="#" aria-label="Lista de Desejos"><i class="fa-solid fa-heart"></i></a>
+                    <a href="./AreaDeCompra.html" aria-label="Carrinho de Compras"><i class="fa-solid fa-cart-shopping"></i></a>
+                </div>
+
+                <button class="hamburger-menu" aria-label="Abrir Menu" aria-expanded="false">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </header>
+
+        <nav class="main-nav">
+            <div class="container nav-container">
+                <ul>
+                    <li><a href="#">Fantasia</a></li>
+                    <li><a href="#">Romance</a></li>
+                    <li><a href="#">Terror</a></li>
+                    <li><a href="#">Literatura</a></li>
+                </ul>
+
+                <div class="user-actions mobile-only">
+                    <a href="#" aria-label="Minha Conta"><i class="fa-solid fa-user"></i></a>
+                    <a href="#" aria-label="Lista de Desejos"><i class="fa-solid fa-heart"></i></a>
+                    <a href="#" aria-label="Carrinho de Compras"><i class="fa-solid fa-cart-shopping"></i></a>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+    
+    <main class="container">
+    
+        <div class="page-title">
+            <h1>Produto</h1>
+        </div>
+    
+        <section class="product-card">
+            
+            <div class="product-media">
+                
+                <div class="product-media__main-image-container">
+                    <button class="product-media__arrow product-media__arrow--left">
+                        <i class="fas fa-chevron-left"></i> 
+                    </button>
+                    <div class="product-media__main-image-placeholder">
+                            <img src="https://m.media-amazon.com/images/I/81MoknVer8L._SY466_.jpg" alt="Capa do Livro"
+                            class="book-cover">
+                    </div>
+                    <button class="product-media__arrow product-media__arrow--right">
+                        <i class="fas fa-chevron-right"></i> 
+                    </button>
+                </div>
+                
+                <div class="product-media__thumbnails">
+                    <div class="product-media__thumb-placeholder">
+                        <img src="https://m.media-amazon.com/images/I/81MoknVer8L._SY466_.jpg" alt="Capa do Livro"
+                        class="book-cover">
+                    </div>
+                    <div class="product-media__thumb-placeholder">
+                        <img src="https://m.media-amazon.com/images/I/81MoknVer8L._SY466_.jpg" alt="Capa do Livro"
+                        class="book-cover">
+                    </div>
+                    <div class="product-media__thumb-placeholder">
+                        <img src="https://m.media-amazon.com/images/I/81MoknVer8L._SY466_.jpg" alt="Capa do Livro"
+                        class="book-cover">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-info">
+                <h2 class="product-info__title">Título</h2>
+                <h3 class="product-info__subtitle">Descrição / Sinopse</h3>
+                <p class="product-info__description">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
+                </p>
+                <div class="product-info__price-tag">Preço</div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Preço</h4>
+                    <ul>
+                        <li><a href="#">Perguntas Frequentes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Produtos</h4>
+                    <ul>
+                        <li><a href="#">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Sobre</h4>
+                    <ul class="social-links">
+                        <li><a href="https://www.facebook.com/senacsaopaulo/?locale=pt_BR" aria-label="Facebook"><i
+                                    class="fa-brands fa-facebook-f"></i></a></li>
+                        <li><a href="https://x.com/senacbrasil" aria-label="Twitter"><i
+                                    class="fa-brands fa-twitter"></i></a></li>
+                        <li><a href="https://www.instagram.com/senacsaopaulo/" aria-label="Instagram"><i
+                                    class="fa-brands fa-instagram"></i></a></li>
+                        <li><a href="https://www.youtube.com/senacsaopaulo" aria-label="YouTube"><i
+                                    class="fa-brands fa-youtube"></i></a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><a href="#">Termos de Serviço</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="sub-footer">
+        <div class="container">
+            <p>Tecnologia em sistemas para Internet - 3º Semestre</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="/js/hero-carousel.js"></script>
+    <script src="/js/header.js"></script>
+    <script src="/js/header-wrapper.js"></script>
+</body>
+
+</html>
