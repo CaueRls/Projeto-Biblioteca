@@ -1,10 +1,26 @@
 /* Arquivo: main-content.css */
 
 /* ---------------------------------- */
-/* 1. VARIÁVEIS E LAYOUT GERAL */
+/* 0. VARIÁVEIS (TOKENS DE DESIGN) */
 /* ---------------------------------- */
+:root {
+    --color-primary-1: #0A3D62; /* Exemplo: Cor de Acentos/Seta Principal */
+    --color-primary-2: #FF6B35; /* Cor da Tag de Preço e Borda do Card (Laranja/Coral) */
+    --color-secondary-1: #2ECC71; /* Exemplo: Outra cor de destaque */
+    --color-secondary-2: #4A4A4A; /* Cor da Subtitle (Sinopse) - Cinza Escuro */
+    
+    --color-background-light: #F8F8F8; /* Fundo claro da página */
+    --color-text-dark: #333333; /* Texto principal escuro */
 
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 20px;
+    --spacing-lg: 30px;
+}
 
+/* ---------------------------------- */
+/* 1. LAYOUT GERAL E ESTRUTURA (BODY, CONTAINER) */
+/* ---------------------------------- */
 
 body {
     margin: 0;
@@ -16,47 +32,99 @@ body {
     /* Container principal da página (largura máxima) */
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: var(--spacing-md);
 }
 
-/* ---------------------------------- */
-/* 2. TÍTULO DA PÁGINA ("PRODUTO") */
-/* ---------------------------------- */
-
+/* Título (mantido como está, é um átomo de texto grande) */
 .page-title h1 {
     font-size: 24px;
     color: var(--color-text-dark);
     border-bottom: 2px solid #ddd;
     padding-bottom: 10px;
-    margin-bottom: 20px;
+    margin-bottom: var(--spacing-md);
     font-weight: normal; 
 }
 
 /* ---------------------------------- */
-/* 3. BLOCO PRINCIPAL: PRODUCT CARD */
+/* 2. ÁTOMOS E MOLÉCULAS */
+/* ---------------------------------- */
+
+/* --- ÁTOMO: Tag de Preço --- */
+.product-info__price-tag {
+    /* É um componente isolado (Átomo/Molécula) */
+    background-color: var(--color-primary-2); 
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    padding: var(--spacing-sm) var(--spacing-md);
+    display: inline-block;
+    border-radius: 4px;
+}
+
+/* --- ÁTOMO: Título Principal --- */
+.product-info__title {
+    font-size: 32px;
+    margin-top: 0;
+    color: var(--color-text-dark);
+}
+
+/* --- MOLÉCULA: Subtítulo/Sinopse --- */
+.product-info__subtitle {
+    font-size: 18px;
+    color: var(--color-secondary-2);
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+/* --- ÁTOMO: Texto da Descrição --- */
+.product-info__description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+/* --- ÁTOMO: Seta de Navegação --- */
+.product-media__arrow {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--color-primary-2); /* Usa cor principal para destaque */
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: var(--spacing-sm);
+    z-index: 10;
+}
+
+/* ---------------------------------- */
+/* 3. ORGANISMO: PRODUCT CARD (Bloco Principal) */
 /* ---------------------------------- */
 
 .product-card {
     /* Layout padrão (desktop) é flex (horizontal) */
     display: flex; 
     background-color: white;
-    border: 1px solid var(--color-primary-2); 
+    border: 1px solid var(--color-primary-2); /* Borda em volta do card */
     border-radius: 8px;
-    padding: 30px;
+    padding: var(--spacing-lg);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
-/* --- ELEMENTO: PRODUCT MEDIA (IMAGENS) --- */
+/* --- MOLÉCULA/ORGANISMO: PRODUCT MEDIA (Área de Imagens) --- */
 
 .product-media {
-    flex: 1;
+    flex: 1; /* Ocupa 1 parte do espaço flex */
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-right: 40px;
-    min-width: 300px;
+    margin-right: 40px; /* Espaçamento entre Imagem e Texto */
+    min-width: 300px; /* Largura mínima para desktop */
 }
 
+/* --- MOLÉCULA: Main Image Container com setas (Controle de Navegação) --- */
 .product-media__main-image-container {
     position: relative;
     width: 100%;
@@ -67,6 +135,7 @@ body {
     justify-content: center;
 }
 
+/* --- ÁTOMO: Placeholder da Imagem Principal --- */
 .product-media__main-image-placeholder {
     width: 300px;
     height: 400px;
@@ -82,32 +151,21 @@ body {
     height: auto;
 }
 
-.product-media__arrow {
-    background: none;
-    border: none;
-    font-size: 24px;
-    color: var(--color-primary-2);
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 10px;
-    z-index: 10;
-}
-
 .product-media__arrow--left { left: -40px; }
 .product-media__arrow--right { right: -40px; }
 
+/* --- MOLÉCULA: Thumbnails --- */
 .product-media__thumbnails {
     margin: 5px;
     display: flex;
     gap: 10px;
 }
 
+/* --- ÁTOMO: Placeholder da Miniatura --- */
 .product-media__thumb-placeholder {
     max-width: 3rem;
     max-height: 3rem;
-    padding: 0,5rem;
+    padding: 0.5rem; /* Ajustado para ponto e vírgula */
     background-color: #eee;
     border: 1px solid #ccc;
     display: flex;
@@ -117,41 +175,92 @@ body {
     color: #888;
 }
 
-/* --- ELEMENTO: PRODUCT INFO (TEXTO) --- */
+/* --- MOLÉCULA/ORGANISMO: PRODUCT INFO (Área de Texto) --- */
 
 .product-info {
-    flex: 2;
+    flex: 2; /* Ocupa 2 partes do espaço flex (o dobro da área de mídia) */
 }
 
-.product-info__title {
-    font-size: 32px;
-    margin-top: 0;
-    color: var(--color-text-dark);
+/* ---------------------------------- */
+/* 3. ORGANISMO: PRODUCT CARD (Bloco Principal) */
+/* ---------------------------------- */
+
+.product-card {
+    /* Layout padrão (desktop) é flex (horizontal) */
+    display: flex; 
+    background-color: white;
+    border: 1px solid var(--color-primary-2); /* Borda em volta do card */
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
-.product-info__subtitle {
-    font-size: 18px;
-    color: var(--color-secondary-2);
+/* --- MOLÉCULA/ORGANISMO: PRODUCT MEDIA (Área de Imagens) --- */
+
+.product-media {
+    flex: 1; /* Ocupa 1 parte do espaço flex */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 40px; /* Espaçamento entre Imagem e Texto */
+    min-width: 300px; /* Largura mínima para desktop */
+}
+
+/* --- MOLÉCULA: Main Image Container com setas (Controle de Navegação) --- */
+.product-media__main-image-container {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
     margin-bottom: 15px;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.product-info__description {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #555;
-    margin-bottom: 25px;
+/* --- ÁTOMO: Placeholder da Imagem Principal --- */
+.product-media__main-image-placeholder {
+    width: 300px;
+    height: 400px;
+    padding: 5px;
+    background-color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #888;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    max-width: 100%; 
+    height: auto;
 }
 
-.product-info__price-tag {
-    background-color: var(--color-primary-2); 
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-    padding: 10px 20px;
-    display: inline-block;
-    border-radius: 4px;
+.product-media__arrow--left { left: -40px; }
+.product-media__arrow--right { right: -40px; }
+
+/* --- MOLÉCULA: Thumbnails --- */
+.product-media__thumbnails {
+    margin: 5px;
+    display: flex;
+    gap: 10px;
+}
+
+/* --- ÁTOMO: Placeholder da Miniatura --- */
+.product-media__thumb-placeholder {
+    max-width: 3rem;
+    max-height: 3rem;
+    padding: 0.5rem; /* Ajustado para ponto e vírgula */
+    background-color: #eee;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    color: #888;
+}
+
+/* --- MOLÉCULA/ORGANISMO: PRODUCT INFO (Área de Texto) --- */
+
+.product-info {
+    flex: 2; /* Ocupa 2 partes do espaço flex (o dobro da área de mídia) */
 }
 
 /* ---------------------------------- */
@@ -177,13 +286,13 @@ body {
     /* Mudar o layout principal para empilhado (vertical) */
     .product-card {
         flex-direction: column;
-        padding: 20px;
+        padding: var(--spacing-md);
     }
 
     /* Centraliza mídias e remove margem lateral */
     .product-media {
         margin-right: 0;
-        margin-bottom: 20px;
+        margin-bottom: var(--spacing-md);
         min-width: 100%; 
     }
 

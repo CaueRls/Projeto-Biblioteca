@@ -15,4 +15,17 @@
   --color-text-dark: #333;
   --color-background-light: #f4f4f4;
 
+  --color-primary-1: #0A3D62; /* Exemplo: Cor de Acentos/Seta Principal */
+  --color-primary-2: #FF6B35; /* Cor da Tag de Preço e Borda do Card (Laranja/Coral) */
+  --color-secondary-1: #2ECC71; /* Exemplo: Outra cor de destaque */
+  --color-secondary-2: #4A4A4A; /* Cor da Subtitle (Sinopse) - Cinza Escuro */
+  
+  --color-background-light-2: #F8F8F8; /* Fundo claro da página */
+  --color-text-dark-2: #333333; /* Texto principal escuro */
+
+  --spacing-xs: 5px;
+  --spacing-sm: 10px;
+  --spacing-md: 20px;
+  --spacing-lg: 30px;
+
 }
