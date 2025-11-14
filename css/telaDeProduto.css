@@ -1,0 +1,327 @@
+/* Reset básico e variáveis */
+:root {
+    --primary-blue: #0A4F8D; /* Azul escuro do cabeçalho e rodapé */
+    --accent-orange: #FFA500; /* Laranja da logo e preço */
+    --light-grey: #f0f0f0; /* Fundo da seção principal */
+    --text-color: #333;
+    --border-color: #ccc;
+    --darker-blue: #004278; /* Azul um pouco mais escuro para o rodapé secundário */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #e0e0e0; /* Cinza de fundo */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Main Header --- */
+.main-header {
+    background-color: var(--primary-blue);
+    padding: 10px 0;
+    color: white;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo img {
+    height: 30px;
+}
+
+.search-bar {
+    display: flex;
+    flex-grow: 1;
+    max-width: 400px;
+    margin: 0 20px;
+}
+
+.search-bar input {
+    flex-grow: 1;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    font-size: 1em;
+}
+
+.search-bar button {
+    background-color: white;
+    color: var(--primary-blue);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.header-icons a {
+    color: white;
+    margin-left: 15px;
+    font-size: 1.2em;
+    text-decoration: none;
+}
+
+/* --- Secondary Navigation (Categorias) --- */
+.secondary-nav {
+    background-color: var(--primary-blue);
+    padding: 8px 0;
+}
+
+.secondary-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.secondary-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: bold;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.secondary-nav a:hover {
+    color: var(--accent-orange);
+}
+
+/* --- Main Product Section (Produto) --- */
+.product-page-main {
+    /* Adiciona padding no topo e na base do container grande */
+    padding: 40px 0; 
+    background-color: #e0e0e0; /* O fundo é o mesmo do body */
+    min-height: 60vh;
+}
+
+.product-container {
+    /* Reduzindo o padding vertical para achatar o container */
+    padding-top: 25px; 
+    padding-bottom: 25px;
+    
+    /* Container Flutuante Branco */
+    background-color: white; /* Fundo branco */
+    border: 1px solid var(--border-color); /* Borda */
+    border-radius: 8px; /* Cantos arredondados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombra */
+
+    max-width: 800px;
+    margin: 0 auto; 
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+/* Overlay de tamanho (mantido para replicar o design) */
+.product-container::before {
+    content: "1440 x 237";
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #555;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    z-index: 10;
+}
+
+.product-image-gallery {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.main-image {
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 1 / 1;
+    background-color: #e0e0e0;
+    border: 1px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    color: #666;
+    border-radius: 5px;
+}
+
+.thumbnail-navigation {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.nav-arrow {
+    background-color: #eee;
+    border: 1px solid var(--border-color);
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 1em;
+    color: #555;
+    transition: background-color 0.3s ease;
+}
+
+.thumbnails {
+    display: flex;
+    gap: 10px;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.thumbnail-item {
+    width: 80px;
+    height: 80px;
+    background-color: #eee;
+    border: 1px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8em;
+    color: #888;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.product-details {
+    flex: 2;
+    min-width: 350px;
+    text-align: left;
+}
+
+.product-details h1 {
+    font-size: 2.2em;
+    margin-bottom: 10px;
+}
+
+.product-details h2 {
+    font-size: 1.4em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.product-details p {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.8;
+}
+
+.price-tag {
+    background-color: var(--accent-orange);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 1.3em;
+    font-weight: bold;
+    display: inline-block;
+}
+
+/* --- Rodapé (Footer) --- */
+.main-footer {
+    background-color: var(--primary-blue);
+    padding: 30px 0 0 0; /* Ajustado para deixar espaço para a segunda linha */
+}
+
+/* Linha principal de links (PREÇO, PRODUTOS, etc.) */
+.footer-primary-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding-bottom: 20px; /* Espaço entre a primeira e a segunda linha */
+}
+
+.footer-link.primary-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 5px 10px;
+    /* Adicionado sublinhado no hover, como no design */
+    transition: color 0.3s ease;
+}
+
+.footer-link.primary-link:hover {
+    color: var(--accent-orange);
+    text-decoration: underline;
+}
+
+/* Linha secundária de links (Perguntas Frequentes, Política de Privacidade, etc.) */
+.footer-secondary-links {
+    background-color: var(--darker-blue); /* Cor levemente mais escura */
+    padding: 10px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-secondary-links .footer-content {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.footer-link.secondary-link {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.9em;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.footer-link.secondary-link:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* --- Responsividade --- */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .search-bar {
+        width: 100%;
+        margin: 0;
+    }
+
+    .product-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .secondary-nav ul,
+    .footer-primary-links,
+    .footer-secondary-links .footer-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
