@@ -1,11 +1,11 @@
 /* Reset básico e variáveis */
 :root {
-    --primary-blue: #0A4F8D; /* Azul escuro do cabeçalho e rodapé */
-    --accent-orange: #FFA500; /* Laranja da logo e preço */
-    --light-grey: #f0f0f0; /* Fundo da seção principal */
+    --primary-blue: #0A4F8D; 
+    --accent-orange: #FFA500;
+    --light-grey: #f0f0f0; 
     --text-color: #333;
     --border-color: #ccc;
-    --darker-blue: #004278; /* Azul um pouco mais escuro para o rodapé secundário */
+    --darker-blue: #004278; 
 }
 
 * {
@@ -18,14 +18,19 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
-    background-color: #e0e0e0; /* Cinza de fundo */
+    background-color: #e0e0e0; 
 }
 
+/* 1. CORREÇÃO PRINCIPAL: Largura máxima de 800px para todos os containers */
 .container {
-    max-width: 1200px;
+    max-width: 800px; 
     margin: 0 auto;
     padding: 0 20px;
 }
+
+/* ------------------------------------------------------------------ */
+/* ------------------------ ESTILOS GERAIS (DESKTOP) ------------------------ */
+/* ------------------------------------------------------------------ */
 
 /* --- Main Header --- */
 .main-header {
@@ -45,10 +50,11 @@ body {
     height: 30px;
 }
 
+/* A barra de pesquisa deve se ajustar dentro dos 800px */
 .search-bar {
     display: flex;
     flex-grow: 1;
-    max-width: 400px;
+    max-width: 300px; /* Reduzindo a largura da barra de busca para caber melhor */
     margin: 0 20px;
 }
 
@@ -104,25 +110,28 @@ body {
 }
 
 /* --- Main Product Section (Produto) --- */
+/* --- Main Product Section (Produto) --- */
 .product-page-main {
-    /* Adiciona padding no topo e na base do container grande */
-    padding: 40px 0; 
-    background-color: #e0e0e0; /* O fundo é o mesmo do body */
-    min-height: 60vh;
+    padding: 60px 0; /* Aumentei o padding do container externo */
+    background-color: #e0e0e0;
+    min-height: 70vh; /* Aumentei a altura mínima da seção */
 }
 
 .product-container {
-    /* Reduzindo o padding vertical para achatar o container */
-    padding-top: 25px; 
-    padding-bottom: 25px;
+    /* Mantive o max-width: 800px */
+    max-width: 800px; 
+    min-height: 600px;
     
-    /* Container Flutuante Branco */
-    background-color: white; /* Fundo branco */
-    border: 1px solid var(--border-color); /* Borda */
-    border-radius: 8px; /* Cantos arredondados */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombra */
-
-    max-width: 800px;
+    /* Aumentei o padding vertical para dar mais altura ao bloco flutuante */
+    padding-top: 40px; 
+    padding-bottom: 40px;
+    
+    /* ... (outras regras mantidas) ... */
+    background-color: white; 
+    border: 1px solid var(--border-color); 
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+    
     margin: 0 auto; 
     display: flex;
     gap: 30px;
@@ -130,23 +139,10 @@ body {
     position: relative;
 }
 
-/* Overlay de tamanho (mantido para replicar o design) */
-.product-container::before {
-    content: "1440 x 237";
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background-color: #555;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 0.8em;
-    z-index: 10;
-}
-
 .product-image-gallery {
-    flex: 1;
-    min-width: 300px;
+    /* Flex ajustado para acomodar 800px - padding */
+    flex: 1; 
+    min-width: 250px; /* Reduzindo o min-width para o espaço menor */
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -155,7 +151,8 @@ body {
 
 .main-image {
     width: 100%;
-    max-width: 400px;
+    max-width: 300px; /* Reduzindo a largura máxima da imagem principal */
+    min-height: 500px;
     aspect-ratio: 1 / 1;
     background-color: #e0e0e0;
     border: 1px solid var(--border-color);
@@ -172,108 +169,32 @@ body {
     align-items: center;
     gap: 10px;
     width: 100%;
-    max-width: 400px;
+    max-width: 300px; /* Reduzindo para a largura da imagem principal */
 }
 
-.nav-arrow {
-    background-color: #eee;
-    border: 1px solid var(--border-color);
-    padding: 8px 12px;
-    cursor: pointer;
-    border-radius: 4px;
-    font-size: 1em;
-    color: #555;
-    transition: background-color 0.3s ease;
-}
-
-.thumbnails {
-    display: flex;
-    gap: 10px;
-    flex-grow: 1;
-    justify-content: center;
-}
-
-.thumbnail-item {
-    width: 80px;
-    height: 80px;
-    background-color: #eee;
-    border: 1px solid var(--border-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 0.8em;
-    color: #888;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
+/* Detalhes do Produto */
 .product-details {
-    flex: 2;
-    min-width: 350px;
+    flex: 1; /* Agora a imagem e os detalhes devem ter pesos similares */
+    min-width: 300px;
     text-align: left;
-}
-
-.product-details h1 {
-    font-size: 2.2em;
-    margin-bottom: 10px;
-}
-
-.product-details h2 {
-    font-size: 1.4em;
-    color: #555;
-    margin-bottom: 15px;
-}
-
-.product-details p {
-    font-size: 1em;
-    color: #666;
-    margin-bottom: 25px;
-    line-height: 1.8;
-}
-
-.price-tag {
-    background-color: var(--accent-orange);
-    color: white;
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-size: 1.3em;
-    font-weight: bold;
-    display: inline-block;
 }
 
 /* --- Rodapé (Footer) --- */
 .main-footer {
     background-color: var(--primary-blue);
-    padding: 30px 0 0 0; /* Ajustado para deixar espaço para a segunda linha */
+    padding: 30px 0 0 0;
 }
 
-/* Linha principal de links (PREÇO, PRODUTOS, etc.) */
 .footer-primary-links {
     display: flex;
     justify-content: center;
     gap: 40px;
     flex-wrap: wrap;
-    padding-bottom: 20px; /* Espaço entre a primeira e a segunda linha */
+    padding-bottom: 20px;
 }
 
-.footer-link.primary-link {
-    color: white;
-    text-decoration: none;
-    font-size: 1.1em;
-    font-weight: bold;
-    padding: 5px 10px;
-    /* Adicionado sublinhado no hover, como no design */
-    transition: color 0.3s ease;
-}
-
-.footer-link.primary-link:hover {
-    color: var(--accent-orange);
-    text-decoration: underline;
-}
-
-/* Linha secundária de links (Perguntas Frequentes, Política de Privacidade, etc.) */
 .footer-secondary-links {
-    background-color: var(--darker-blue); /* Cor levemente mais escura */
+    background-color: var(--darker-blue);
     padding: 10px 0;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -285,21 +206,20 @@ body {
     flex-wrap: wrap;
 }
 
-.footer-link.secondary-link {
-    color: #ccc;
-    text-decoration: none;
-    font-size: 0.9em;
-    padding: 5px 0;
-    transition: color 0.3s ease;
-}
+/* ------------------------------------------------------------------ */
+/* ------------------------ MEDIA QUERIES (RESPONSIVIDADE) ------------------------ */
+/* ------------------------------------------------------------------ */
 
-.footer-link.secondary-link:hover {
-    color: white;
-    text-decoration: underline;
-}
-
-/* --- Responsividade --- */
-@media (max-width: 768px) {
+/* Esta media query se aplica em telas menores que 800px, 
+   o que agora é a largura padrão do desktop também. */
+@media (max-width: 800px) {
+    /* A regra do product-container (max-width) já está definida para 800px acima.
+       Aqui, vamos garantir que ele ocupe a maior parte da tela em dispositivos menores. */
+    .product-container {
+        max-width: 95%; /* Garante margem lateral em telas menores */
+    }
+    
+    /* O restante do CSS de responsividade abaixo de 800px */
     .header-content {
         flex-direction: column;
         gap: 15px;
@@ -308,6 +228,11 @@ body {
     .search-bar {
         width: 100%;
         margin: 0;
+        max-width: 100%;
+    }
+
+    .product-page-main {
+        padding: 20px 0;
     }
 
     .product-container {
@@ -315,13 +240,33 @@ body {
         align-items: center;
         padding: 20px;
     }
-}
+    
+    .product-image-gallery,
+    .product-details {
+        width: 100%;
+        min-width: unset; 
+        flex: unset;
+        text-align: center;
+    }
+    
+    .product-details h1,
+    .product-details h2,
+    .product-details p {
+        text-align: center;
+    }
+    
+    .price-section {
+        text-align: center;
+    }
 
-@media (max-width: 480px) {
     .secondary-nav ul,
     .footer-primary-links,
     .footer-secondary-links .footer-content {
         flex-direction: column;
         gap: 15px;
+    }
+    
+    .footer-link {
+        padding: 5px 0;
     }
 }
