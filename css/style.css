@@ -15,6 +15,8 @@
 @import url('./atomic/molecules/book-card.css'); 
 @import url('./atomic/molecules/social-links.css');
 @import url('./atomic/molecules/hamburger-menu.css');
+@import url('/css/atomic/molecules/detalhesProduto.css');
+@import url('/css/atomic/molecules/miniaturas.css');
 
 /* 4. ORGANISMOS */
 @import url('./atomic/organisms/header.css');
@@ -23,5 +25,6 @@
 @import url('./atomic/organisms/hero-carousel.css');
 @import url('./atomic/organisms/footer.css');
 @import url('./atomic/organisms/header-wrapper.css');
+@import url('/css/atomic/organisms/conteiner_produto.css');
 
 @import url('/css/atomic/organisms/product-card.css');

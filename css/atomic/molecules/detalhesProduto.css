@@ -1,0 +1,5 @@
+.product-details {
+    flex: 1; 
+    min-width: 200px;
+    text-align: left;
+}

@@ -1,225 +1,10 @@
-/* Reset básico e variáveis */
-:root {
-    --primary-blue: #0A4F8D; 
-    --accent-orange: #FFA500;
-    --light-grey: #f0f0f0; 
-    --text-color: #333;
-    --border-color: #ccc;
-    --darker-blue: #004278; 
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: #e0e0e0; 
-}
-
-/* 1. CORREÇÃO PRINCIPAL: Largura máxima de 800px para todos os containers */
-.container {
-    max-width: 800px; 
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* ------------------------------------------------------------------ */
-/* ------------------------ ESTILOS GERAIS (DESKTOP) ------------------------ */
-/* ------------------------------------------------------------------ */
-
-/* --- Main Header --- */
-.main-header {
-    background-color: var(--primary-blue);
-    padding: 10px 0;
-    color: white;
-}
-
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.logo img {
-    height: 30px;
-}
-
-/* A barra de pesquisa deve se ajustar dentro dos 800px */
-.search-bar {
-    display: flex;
-    flex-grow: 1;
-    max-width: 300px; /* Reduzindo a largura da barra de busca para caber melhor */
-    margin: 0 20px;
-}
-
-.search-bar input {
-    flex-grow: 1;
-    padding: 8px 12px;
-    border: none;
-    border-radius: 5px 0 0 5px;
-    font-size: 1em;
-}
-
-.search-bar button {
-    background-color: white;
-    color: var(--primary-blue);
-    border: none;
-    padding: 8px 12px;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
-    font-size: 1em;
-}
-
-.header-icons a {
-    color: white;
-    margin-left: 15px;
-    font-size: 1.2em;
-    text-decoration: none;
-}
-
-/* --- Secondary Navigation (Categorias) --- */
-.secondary-nav {
-    background-color: var(--primary-blue);
-    padding: 8px 0;
-}
-
-.secondary-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-}
-
-.secondary-nav a {
-    color: white;
-    text-decoration: none;
-    font-size: 0.9em;
-    font-weight: bold;
-    padding: 5px 0;
-    transition: color 0.3s ease;
-}
-
-.secondary-nav a:hover {
-    color: var(--accent-orange);
-}
-
-/* --- Main Product Section (Produto) --- */
-/* --- Main Product Section (Produto) --- */
-.product-page-main {
-    padding: 60px 0; /* Aumentei o padding do container externo */
-    background-color: #e0e0e0;
-    min-height: 70vh; /* Aumentei a altura mínima da seção */
-}
-
-.product-container {
-    /* Mantive o max-width: 800px */
-    max-width: 800px; 
-    min-height: 600px;
-    
-    /* Aumentei o padding vertical para dar mais altura ao bloco flutuante */
-    padding-top: 40px; 
-    padding-bottom: 40px;
-    
-    /* ... (outras regras mantidas) ... */
-    background-color: white; 
-    border: 1px solid var(--border-color); 
-    border-radius: 8px; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
-    
-    margin: 0 auto; 
-    display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-    position: relative;
-}
-
-.product-image-gallery {
-    /* Flex ajustado para acomodar 800px - padding */
-    flex: 1; 
-    min-width: 250px; /* Reduzindo o min-width para o espaço menor */
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    align-items: center;
-}
-
-.main-image {
-    width: 100%;
-    max-width: 300px; /* Reduzindo a largura máxima da imagem principal */
-    min-height: 500px;
-    aspect-ratio: 1 / 1;
-    background-color: #e0e0e0;
-    border: 1px solid var(--border-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2em;
-    color: #666;
-    border-radius: 5px;
-}
-
-.thumbnail-navigation {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-    max-width: 300px; /* Reduzindo para a largura da imagem principal */
-}
-
-/* Detalhes do Produto */
-.product-details {
-    flex: 1; /* Agora a imagem e os detalhes devem ter pesos similares */
-    min-width: 300px;
-    text-align: left;
-}
-
-/* --- Rodapé (Footer) --- */
-.main-footer {
-    background-color: var(--primary-blue);
-    padding: 30px 0 0 0;
-}
-
-.footer-primary-links {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    padding-bottom: 20px;
-}
-
-.footer-secondary-links {
-    background-color: var(--darker-blue);
-    padding: 10px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.footer-secondary-links .footer-content {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-/* ------------------------------------------------------------------ */
-/* ------------------------ MEDIA QUERIES (RESPONSIVIDADE) ------------------------ */
-/* ------------------------------------------------------------------ */
-
-/* Esta media query se aplica em telas menores que 800px, 
-   o que agora é a largura padrão do desktop também. */
+@import "/css/atomic/variables.css";
+@import "";
 @media (max-width: 800px) {
-    /* A regra do product-container (max-width) já está definida para 800px acima.
-       Aqui, vamos garantir que ele ocupe a maior parte da tela em dispositivos menores. */
     .product-container {
-        max-width: 95%; /* Garante margem lateral em telas menores */
+        max-width: 95%; 
     }
     
-    /* O restante do CSS de responsividade abaixo de 800px */
     .header-content {
         flex-direction: column;
         gap: 15px;
@@ -232,13 +17,13 @@ body {
     }
 
     .product-page-main {
-        padding: 20px 0;
+        padding: var(--spacing-md) 0;
     }
 
     .product-container {
         flex-direction: column;
         align-items: center;
-        padding: 20px;
+        padding: var(--spacing-md); 
     }
     
     .product-image-gallery,
@@ -247,6 +32,11 @@ body {
         min-width: unset; 
         flex: unset;
         text-align: center;
+    }
+    
+    .thumbnail-navigation {
+        max-width: 100%; 
+        width: 100%; 
     }
     
     .product-details h1,
@@ -267,6 +57,6 @@ body {
     }
     
     .footer-link {
-        padding: 5px 0;
+        padding: var(--spacing-xs) 0;
     }
 }

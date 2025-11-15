@@ -1,0 +1,18 @@
+.product-container {
+    max-width: 800px; 
+    min-height: 600px;
+    
+    padding: 40px; 
+    margin: 40px auto; 
+    
+    background-color: var(--color-white); 
+    border: 1px solid var(--color-border-light); 
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+    
+    display: flex;
+    justify-content: center; 
+    gap: var(--spacing-md);
+    
+    position: relative;
+}
