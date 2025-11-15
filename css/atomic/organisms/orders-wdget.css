@@ -1,0 +1,71 @@
+/* css/atomic/organisms/orders-widget.css */
+
+.orders-widget {
+    background-color: var(--color-primary); /* Azul escuro do seu tema */
+    color: var(--color-white);
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.orders-widget h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.orders-tabs {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.orders-tabs i {
+    font-size: 1.5rem;
+    opacity: 0.7;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.orders-tabs i:hover, 
+.orders-tabs i.active {
+    opacity: 1;
+}
+
+.orders-list ul {
+    list-style: none;
+    max-height: 300px; /* Limita a altura da lista */
+    overflow-y: auto; /* Adiciona scroll se a lista for longa */
+}
+
+.orders-list li {
+    display: grid;
+    /* Layout da lista: Título | Status | Data */
+    grid-template-columns: 1fr auto auto;
+    gap: 15px;
+    padding: 15px 5px;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.orders-list li:last-child {
+    border-bottom: none;
+}
+
+.orders-list .order-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Evita quebra de linha em títulos longos */
+}
+
+.orders-list .order-status {
+    color: var(--color-secondary); /* Laranja para o status padrão */
+    font-weight: bold;
+}
+
+.orders-list .order-date {
+    opacity: 0.7;
+    white-space: nowrap;
+}

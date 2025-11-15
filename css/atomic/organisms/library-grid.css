@@ -1,0 +1,8 @@
+/* css/atomic/organisms/library-grid.css */
+
+.library-grid {
+    display: grid;
+    /* Cria colunas automáticas de no mínimo 220px */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}

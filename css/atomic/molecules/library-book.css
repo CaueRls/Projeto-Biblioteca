@@ -1,0 +1,30 @@
+/* css/atomic/molecules/library-book.css */
+
+.library-book {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    /* Adiciona o aspecto de "livro" 3D como na imagem */
+    perspective: 1000px;
+}
+
+.library-book img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: rotateY(0deg);
+    transition: transform 0.3s ease;
+}
+
+.library-book:hover {
+    transform: scale(1.05);
+}
+
+.library-book:hover img {
+    /* Efeito sutil de rotação ao passar o mouse */
+    transform: rotateY(-10deg);
+}

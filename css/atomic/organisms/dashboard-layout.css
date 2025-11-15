@@ -1,0 +1,24 @@
+/* css/atomic/organisms/dashboard-layout.css */
+
+.dashboard-layout {
+    display: grid;
+    /* Sidebar com 320px e o resto do espaço para o conteúdo */
+    grid-template-columns: 320px 1fr;
+    gap: 30px;
+    padding: 40px 0;
+}
+
+.dashboard-content h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: var(--color-text);
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .dashboard-layout {
+        /* Empilha as colunas em telas menores */
+        grid-template-columns: 1fr;
+    }
+}
