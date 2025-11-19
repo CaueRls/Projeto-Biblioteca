@@ -8,6 +8,7 @@
 @import url('./atomic/atoms/button.css');
 @import url('./atomic/atoms/section-title.css');
 @import url('./atomic/atoms/slider.css');
+@import url('./atomic/atoms/breadcrumbs.css');
 
 /* 3. MOLÉCULAS */
 @import url('./atomic/molecules/search-bar.css');
