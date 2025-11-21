@@ -1,0 +1,32 @@
+/* css/atomic/atoms/breadcrumbs.css */
+
+.breadcrumbs {
+    /* Ajusta o espaçamento para ficar logo acima do título */
+    margin: 20px; 
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.breadcrumbs a {
+    /* Vamos usar a cor de destaque que já definimos */
+    color: var(--color-accent); 
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex; 
+    align-items: center;
+}
+
+.breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumbs span {
+    /* O separador ">" */
+    margin: 0 10px;
+    color: #999;
+}
+
+.breadcrumbs a i {
+    margin-right: 6px; /* Adiciona um espaço entre o ícone e "Home" */
+    font-size: 0.85rem; /* Deixa o ícone um pouco mais delicado */
+}

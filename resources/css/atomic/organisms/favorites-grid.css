@@ -1,0 +1,33 @@
+/* css/atomic/organisms/favorites-grid.css */
+.favorites-grid {
+    display: grid;
+    /* Cria um grid responsivo: 3 colunas em desktop */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* Deixa o conteúdo principal com um respiro */
+.main-container {
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+/* --- Media Queries para responsividade --- */
+
+/* Telas de até 992px (Tablets) -> 2 colunas */
+@media (max-width: 992px) {
+    .favorites-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Telas de até 768px (Celulares) -> 1 coluna */
+@media (max-width: 768px) {
+    .favorites-grid {
+        grid-template-columns: 1fr;
+    }
+    .page-title {
+        font-size: 2rem;
+        text-align: center;
+    }
+}

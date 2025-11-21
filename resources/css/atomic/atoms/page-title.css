@@ -1,0 +1,9 @@
+/* css/atomic/atoms/page-title.css */
+.page-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    margin-bottom: 40px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--color-light-gray);
+}

@@ -1,0 +1,29 @@
+/* css/style.css */
+
+/* 1. VARIÁVEIS */
+@import url('/resources/css/atomic/variables.css');
+
+/* 2. ÁTOMOS */
+@import url('/resources/css/atomic/atoms/global.css');
+@import url('/resources/css/atomic/atoms/button.css');
+@import url('/resources/css/atomic/atoms/section-title.css');
+@import url('/resources/css/atomic/atoms/slider.css');
+@import url('/resources/css/atomic/atoms/breadcrumbs.css');
+
+/* 3. MOLÉCULAS */
+@import url('/resources/css/atomic/molecules/search-bar.css');
+@import url('/resources/css/atomic/molecules/user-actions.css');
+@import url('/resources/css/atomic/molecules/book-card.css'); 
+@import url('/resources/css/atomic/molecules/social-links.css');
+@import url('/resources/css/atomic/molecules/hamburger-menu.css');
+
+/* 4. ORGANISMOS */
+@import url('/resources/css/atomic/organisms/header.css');
+@import url('/resources/css/atomic/organisms/nav.css');
+@import url('/resources/css/atomic/organisms/book-section.css');
+@import url('/resources/css/atomic/organisms/hero-carousel.css');
+@import url('/resources/css/atomic/organisms/footer.css');
+@import url('/resources/css/atomic/organisms/header-wrapper.css');
+@import url('/resources/css/atomic/organisms/favorites-grid.css');
+@import url('/resources/css/atomic/organisms/product-card.css');
+@import url('/resources/css/atomic/organisms/checkout.css');
