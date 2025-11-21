@@ -16,7 +16,6 @@
     @vite(['resources/css/style.css', 'resources/js/header-wrapper.js', 'resources/js/header.js', 'resources/js/hero-carousel.js'])
 </head>
 <body>
-
     {{-- HEADER (Vamos incluir como um componente depois) --}}
     <div class="header-sticky-wrapper">
         @include('partials.header')

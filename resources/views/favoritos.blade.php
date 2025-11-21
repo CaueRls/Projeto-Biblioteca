@@ -1,7 +1,7 @@
 <div class="header-sticky-wrapper">
         <header class="main-header">
             <nav class="breadcrumbs">
-                <a href="/Home.html">
+                <a href="{{ home }}">
                     <i class="fa-solid fa-house"></i> Home
                 </a>
                 <span>&gt;</span>

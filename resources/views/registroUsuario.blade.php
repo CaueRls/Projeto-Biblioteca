@@ -1,3 +1,12 @@
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+body {
+    background-color: gray;
+}
+</style>
+
 <main class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
     <div class="max-w-md w-full bg-white rounded-xl shadow-lg p-8 space-y-6">
         
