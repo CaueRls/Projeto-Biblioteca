@@ -16,7 +16,7 @@
                 <div class="user-actions desktop-only">
                     {{-- Se for ADMIN, mostra o botão de Painel --}}
                     @if(Auth::user()?->is_admin)
-                    <a href="{{ route('admin.produtos.index') }}" style="margin-right: 15px; color: orange;" title="Painel Admin">
+                    <a href="{{ route('admin.produtos.index') }}" style="background: transparent; border: none; padding: 0; cursor: pointer; color: #ffph7f00; font-size: 24px; display: inline-block; vertical-align: middle;" title="Painel Admin">
                     <i class="fa-solid fa-gear"></i>
                     </a>
                 @endif
@@ -36,7 +36,7 @@
                     <form action="{{ route('logout') }}" method="POST" style="display: inline;">
                         @csrf
                         {{-- MUDANÇA: Adicionei 'color: #fff' e 'font-size: 18px' para igualar --}}
-                        <button type="submit" aria-label="Sair" style="background: transparent; border: none; padding: 0; cursor: pointer; color: #ffph7f00; font-size: 24px; display: inline-block; vertical-align: middle;">
+                        <button type="submit" aria-label="Sair" style="background: transparent; border: none; padding: 0; cursor: pointer; color: #f39c12; font-size: 24px; display: inline-block; vertical-align: middle;">
                             <i class="fa-solid fa-right-from-bracket"></i>
                         </button>
                     </form>
