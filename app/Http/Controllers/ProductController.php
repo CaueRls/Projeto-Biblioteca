@@ -1,0 +1,91 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\Product;
+use App\Models\Author;
+use App\Models\Genre;
+use App\Models\Publisher;
+
+class ProductController extends Controller
+{
+    /**
+     * Lista todos os produtos na tabela.
+     */
+    public function index()
+    {
+        // Busca todos os produtos
+        // DICA: Se você já definiu os relacionamentos no Model, poderia usar Product::with('author', ...)->get();
+        $products = Product::all();
+        
+        return view('admin.produtos.index', compact('products'));
+    }
+
+    /**
+     * Mostra o formulário de cadastro.
+     * Agora buscamos as listas do Banco de Dados para preencher os <select>.
+     */
+    public function create()
+    {
+        $autores = Author::all();    // SELECT * FROM authors
+        $generos = Genre::all();     // SELECT * FROM genres
+        $editoras = Publisher::all(); // SELECT * FROM publishers
+
+        // Passamos essas variáveis para a view
+        return view('admin.produtos.create', compact('autores', 'generos', 'editoras'));
+    }
+
+    /**
+     * Salva o novo produto no Banco.
+     */
+    public function store(Request $request)
+    {
+        // O $request->all() agora vai conter 'author_id', 'genre_id', etc.
+        Product::create($request->all());
+
+        return redirect()->route('admin.produtos.index')
+                         ->with('sucesso', 'Produto cadastrado com sucesso!');
+    }
+
+    /**
+     * Mostra o formulário de edição.
+     * Precisamos do produto atual E das listas para os dropdowns.
+     */
+    public function edit($id)
+    {
+        $product = Product::findOrFail($id);
+        
+        // Precisamos carregar as listas novamente para o usuário poder trocar a opção
+        $autores = Author::all();
+        $generos = Genre::all();
+        $editoras = Publisher::all();
+
+        return view('admin.produtos.edit', compact('product', 'autores', 'generos', 'editoras'));
+    }
+
+    /**
+     * Atualiza os dados no Banco.
+     */
+    public function update(Request $request, $id)
+    {
+        $product = Product::findOrFail($id);
+        
+        $product->update($request->all());
+
+        return redirect()->route('admin.produtos.index')
+                         ->with('sucesso', 'Produto atualizado com sucesso!');
+    }
+
+    /**
+     * Remove o produto.
+     */
+    public function destroy($id)
+    {
+        $product = Product::findOrFail($id);
+        $product->delete();
+
+        return redirect()->route('admin.produtos.index')
+                         ->with('sucesso', 'Produto excluído com sucesso!');
+    }
+}

@@ -30,7 +30,7 @@
                     <form action="{{ route('logout') }}" method="POST" style="display: inline;">
                         @csrf
                         {{-- MUDANÇA: Adicionei 'color: #fff' e 'font-size: 18px' para igualar --}}
-                        <button type="submit" aria-label="Sair" style="background: transparent; border: none; padding: 0; cursor: pointer; color: #fff; font-size: 24px; display: inline-block; vertical-align: middle;">
+                        <button type="submit" aria-label="Sair" style="background: transparent; border: none; padding: 0; cursor: pointer; color: #ffph7f00; font-size: 24px; display: inline-block; vertical-align: middle;">
                             <i class="fa-solid fa-right-from-bracket"></i>
                         </button>
                     </form>
