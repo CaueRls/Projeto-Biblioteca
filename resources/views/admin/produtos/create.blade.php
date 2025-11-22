@@ -70,6 +70,16 @@
             </select>
         </div>
 
+        <div class="flex items-center gap-2 mt-4">
+            {{-- Lógica para marcar se já for destaque na edição --}}
+            <input type="checkbox" name="is_featured" value="1" id="is_featured" class="w-5 h-5"
+                {{ isset($product) && $product->is_featured ? 'checked' : '' }}>
+            
+            <label for="is_featured" class="text-gray-700 font-bold">
+                Exibir este livro no Banner Principal (Carrossel)?
+            </label>
+        </div>
+
         {{-- Botão --}}
         <div class="flex justify-end mt-8">
             <button type="submit"

@@ -6,13 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    // Libera esses campos para serem salvos
-    protected $fillable = [
-    'titulo', 
-    'author_id',    // Mudou de autor para author_id
-    'genre_id',     // Mudou de genero para genre_id
-    'publisher_id', // Mudou de editora para publisher_id
-    'imagem', 
-    'preco'
-    ];
+    protected $fillable = ['titulo', 'author_id', 'genre_id', 'publisher_id', 'imagem', 'preco', 'is_featured'];
+
+    // Relação: Um produto PERTENCE a um Autor
+    public function author()
+    {
+        return $this->belongsTo(Author::class);
+    }
+
+    // Relação: Um produto PERTENCE a um Gênero
+    public function genre()
+    {
+        return $this->belongsTo(Genre::class);
+    }
+
+    // Relação: Um produto PERTENCE a uma Editora
+    public function publisher()
+    {
+        return $this->belongsTo(Publisher::class);
+    }
 }

@@ -41,13 +41,16 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        // O $request->all() agora vai conter 'author_id', 'genre_id', etc.
-        Product::create($request->all());
+        // Pega todos os dados
+        $data = $request->all();
+        
+        // Se o checkbox não vier marcado, define como 0 (false)
+        $data['is_featured'] = $request->has('is_featured');
 
-        return redirect()->route('admin.produtos.index')
-                         ->with('sucesso', 'Produto cadastrado com sucesso!');
+        Product::create($data); // Salva com a variável $data ajustada
+
+        return redirect()->route('admin.produtos.index')->with('sucesso', 'Criado!');
     }
-
     /**
      * Mostra o formulário de edição.
      * Precisamos do produto atual E das listas para os dropdowns.
@@ -71,10 +74,12 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
         
-        $product->update($request->all());
+        $data = $request->all();
+        $data['is_featured'] = $request->has('is_featured'); // Ajuste do checkbox
 
-        return redirect()->route('admin.produtos.index')
-                         ->with('sucesso', 'Produto atualizado com sucesso!');
+        $product->update($data);
+
+        return redirect()->route('admin.produtos.index')->with('sucesso', 'Atualizado!');
     }
 
     /**

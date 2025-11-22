@@ -13,7 +13,13 @@
             </form>
 
             {{-- DESKTOP --}}
-            <div class="user-actions desktop-only">
+                <div class="user-actions desktop-only">
+                    {{-- Se for ADMIN, mostra o botão de Painel --}}
+                    @if(Auth::user()?->is_admin)
+                    <a href="{{ route('admin.produtos.index') }}" style="margin-right: 15px; color: orange;" title="Painel Admin">
+                    <i class="fa-solid fa-gear"></i>
+                    </a>
+                @endif
                 
                 {{-- Visitante: Vê ícone de usuário (vai para login) --}}
                 @guest

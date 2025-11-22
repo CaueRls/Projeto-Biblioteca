@@ -49,6 +49,16 @@
             <input type="text" name="editora" value="{{ $product->editora }}" class="w-full border border-gray-400 rounded p-2 focus:outline-none focus:border-blue-600">
         </div>
 
+        <div class="flex items-center gap-2 mt-4">
+            {{-- Lógica para marcar se já for destaque na edição --}}
+            <input type="checkbox" name="is_featured" value="1" id="is_featured" class="w-5 h-5"
+                {{ isset($product) && $product->is_featured ? 'checked' : '' }}>
+            
+            <label for="is_featured" class="text-gray-700 font-bold">
+                Exibir este livro no Banner Principal (Carrossel)?
+            </label>
+        </div>
+
         {{-- Botões --}}
         <div class="flex justify-end gap-4 mt-8">
             <a href="{{ route('admin.produtos.index') }}" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-6 rounded shadow">
