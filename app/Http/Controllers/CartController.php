@@ -18,14 +18,14 @@ class CartController extends Controller
     {
         $product = Product::findOrFail($id);
 
-        // Pega o carrinho atual da sessão (ou cria um array vazio se não existir)
+        // Pega o carrinho atual da sessão
         $cart = session()->get('cart', []);
 
-        // Se o produto já está no carrinho, aumenta a quantidade
+        // Se já existe, aumenta quantidade
         if(isset($cart[$id])) {
             $cart[$id]['quantity']++;
         } else {
-            // Se não está, adiciona ele com quantidade 1
+            // Se não, adiciona novo
             $cart[$id] = [
                 "name" => $product->titulo,
                 "quantity" => 1,
@@ -34,25 +34,27 @@ class CartController extends Controller
             ];
         }
 
-        // Salva o carrinho atualizado na sessão
         session()->put('cart', $cart);
 
         return redirect()->back()->with('sucesso', 'Produto adicionado ao carrinho!');
     }
 
-    // 3. Remover Item do Carrinho
+    // 3. Remover Item do Carrinho (A CORREÇÃO ESTÁ AQUI)
     public function remove(Request $request)
     {
         if($request->id) {
             $cart = session()->get('cart');
+            
             if(isset($cart[$request->id])) {
                 unset($cart[$request->id]);
                 session()->put('cart', $cart);
             }
+            
             session()->flash('sucesso', 'Produto removido com sucesso!');
         }
+
+        // !!! ESSA LINHA ERA A QUE FALTAVA !!!
+        // Ela manda o navegador voltar para a página anterior (o carrinho)
+        return redirect()->back();
     }
-    
-    // 4. Atualizar Quantidade (Ajax - Opcional para depois)
-    // Vamos focar no básico primeiro
 }
