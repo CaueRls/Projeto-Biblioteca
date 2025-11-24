@@ -4,41 +4,45 @@
 @section('content')
     <main>
         
-        {{-- HERO CAROUSEL (Mantive estático pois são banners promocionais) --}}
+        {{-- =================================================
+             HERO CAROUSEL (SWIPER)
+             ================================================= --}}
         <section class="hero-carousel">
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
 
-                    {{-- SE NÃO TIVER DESTAQUE, MOSTRA UM AVISO OU SLIDE PADRÃO --}}
                     @if($destaques->isEmpty())
                          <div class="swiper-slide">
                             <div class="container">
-                                <h2 style="color: white; text-align: center; padding-top: 50px;">Nenhum destaque cadastrado</h2>
+                                <div class="carousel-slide" style="justify-content: center;">
+                                    <h2 style="color: white; text-align: center; padding: 50px;">
+                                        Nenhum destaque cadastrado.
+                                    </h2>
+                                </div>
                             </div>
                          </div>
                     @else
-                        {{-- LOOP DOS DESTAQUES --}}
                         @foreach($destaques as $destaque)
                         <div class="swiper-slide">
                             <div class="container">
                                 <div class="carousel-slide">
                                     <div class="slide-content">
-                                        {{-- Título do Livro --}}
                                         <h2 class="slide-title">{{ $destaque->titulo }}</h2>
                                         
-                                        {{-- Descrição (Autor e Editora) --}}
                                         <p class="slide-description">
-                                            Aproveite esta obra incrível de {{ $destaque->author->name }} 
+                                            Uma obra incrível de {{ $destaque->author->name }}, 
                                             lançada pela editora {{ $destaque->publisher->name }}.
                                         </p>
                                         
-                                        {{-- Preço no Botão --}}
-                                        <a href="#" class="btn btn-primary">
-                                            Comprar por R$ {{ number_format($destaque->preco, 2, ',', '.') }}
-                                        </a>
+                                        {{-- Botão do Banner (Leva para detalhes ou adiciona ao carrinho) --}}
+                                        <form action="{{ route('cart.add', $destaque->id) }}" method="POST">
+                                            @csrf
+                                            <button type="submit" class="btn btn-primary">
+                                                Comprar por R$ {{ number_format($destaque->preco, 2, ',', '.') }}
+                                            </button>
+                                        </form>
                                     </div>
                                     
-                                    {{-- Imagem do Livro --}}
                                     <div class="slide-image">
                                         <img src="{{ $destaque->imagem }}" alt="{{ $destaque->titulo }}">
                                     </div>
@@ -56,7 +60,9 @@
             </div>
         </section>
 
-        {{-- SEÇÃO: BEST SELLERS (Agora Dinâmica) --}}
+        {{-- =================================================
+             SEÇÃO 1: BEST SELLER
+             ================================================= --}}
         <section class="book-section">
             <div class="container">
                 <h2 class="section-title">Best Seller</h2>
@@ -66,31 +72,44 @@
 
                     <div class="slider-wrapper">
                         
-                        {{-- VERIFICA SE TEM LIVROS --}}
                         @if($livros->isEmpty())
-                            <p style="padding: 20px; color: gray;">Nenhum livro cadastrado.</p>
+                            <p style="padding: 20px; color: gray;">Nenhum livro encontrado.</p>
                         @else
-                            {{-- LOOP DOS LIVROS --}}
                             @foreach($livros as $livro)
+                                {{-- CARD ATÔMICO --}}
                                 <div class="book-card">
-                                    {{-- Imagem do Banco --}}
-                                    <img src="{{ $livro->imagem }}" alt="{{ $livro->titulo }}" class="book-cover">
                                     
-                                    {{-- Título do Banco --}}
-                                    <h3 class="book-title">{{ $livro->titulo }}</h3>
-                                    
-                                    {{-- Descrição (Como não temos sinopse no banco, pus Autor e Gênero) --}}
-                                    <p class="book-description">
-                                        <strong>Autor:</strong> {{ $livro->author->name }} <br>
-                                        <strong>Gênero:</strong> {{ $livro->genre->name }}
-                                    </p>
-                                    
-                                    {{-- Preço --}}
-                                    <div class="book-price">
-                                        R$ {{ number_format($livro->preco, 2, ',', '.') }}
+                                    {{-- Container da Imagem (Corte fixo) --}}
+                                    <div class="book-image-container">
+                                        <img src="{{ $livro->imagem }}" alt="{{ $livro->titulo }}" class="book-cover">
                                     </div>
                                     
-                                    <button class="btn btn-primary">Comprar</button>
+                                    {{-- Informações (Flex Grow) --}}
+                                    <div class="book-info">
+                                        <h3 class="book-title" title="{{ $livro->titulo }}">
+                                            {{ $livro->titulo }}
+                                        </h3>
+                                        
+                                        <p class="book-author">
+                                            {{ $livro->author->name }}
+                                        </p>
+                                        
+                                        {{-- Rodapé do Card --}}
+                                        <div class="book-footer">
+                                            <div class="book-price">
+                                                R$ {{ number_format($livro->preco, 2, ',', '.') }}
+                                            </div>
+                                            
+                                            {{-- FORMULÁRIO POST PARA COMPRAR --}}
+                                            <form action="{{ route('cart.add', $livro->id) }}" method="POST" style="width: 100%;">
+                                                @csrf
+                                                <button type="submit" class="btn btn-primary">
+                                                    <i class="fa-solid fa-cart-plus" style="margin-right: 5px;"></i> Comprar
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+
                                 </div>
                             @endforeach
                         @endif
@@ -102,7 +121,9 @@
             </div>
         </section>
 
-        {{-- SEÇÃO: CATEGORIA (Repetimos a lógica ou filtramos depois) --}}
+        {{-- =================================================
+             SEÇÃO 2: DESTAQUES DA LOJA
+             ================================================= --}}
         <section class="book-section">
             <div class="container">
                 <h2 class="section-title">Destaques da Loja</h2>
@@ -112,21 +133,52 @@
 
                     <div class="slider-wrapper">
                         
-                        @foreach($livros as $livro)
-                            <div class="book-card">
-                                <img src="{{ $livro->imagem }}" alt="{{ $livro->titulo }}" class="book-cover">
-                                <h3 class="book-title">{{ $livro->titulo }}</h3>
-                                <p class="book-description">
-                                    {{ $livro->publisher->name }}
-                                </p>
-                                <div class="book-price">
-                                    R$ {{ number_format($livro->preco, 2, ',', '.') }}
+                        @if($livros->isEmpty())
+                            <p style="padding: 20px; color: gray;">Nenhum livro encontrado.</p>
+                        @else
+                            @foreach($livros as $livro)
+                                {{-- CARD ATÔMICO --}}
+                                <div class="book-card">
+                                    
+                                    {{-- Container da Imagem (Corte fixo) --}}
+                                    <div class="book-image-container">
+                                        <img src="{{ $livro->imagem }}" alt="{{ $livro->titulo }}" class="book-cover">
+                                    </div>
+                                    
+                                    {{-- Informações (Flex Grow) --}}
+                                    <div class="book-info">
+                                        <h3 class="book-title" title="{{ $livro->titulo }}">
+                                            {{ $livro->titulo }}
+                                        </h3>
+                                        
+                                        <p class="book-author">
+                                            {{ $livro->author->name }}
+                                        </p>
+                                        
+                                        {{-- Rodapé do Card --}}
+                                        <div class="book-footer">
+                                            <div class="book-price">
+                                                R$ {{ number_format($livro->preco, 2, ',', '.') }}
+                                            </div>
+                                            
+                                            {{-- FORMULÁRIO POST PARA COMPRAR --}}
+                                            <form action="{{ route('cart.add', $livro->id) }}" method="POST" style="width: 100%;">
+                                                @csrf
+                                                <button type="submit" class="btn btn-primary">
+                                                    <i class="fa-solid fa-cart-plus" style="margin-right: 5px;"></i> Comprar
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+
                                 </div>
-                                <button class="btn btn-primary">Comprar</button>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        @endif
 
                     </div>
+
+                    <button class="arrow-button right-arrow"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
 
                     <button class="arrow-button right-arrow"><i class="fa-solid fa-chevron-right"></i></button>
                 </div>
@@ -134,4 +186,33 @@
         </section>
 
     </main>
+
+    {{-- Script para fazer os carrosséis de livros funcionarem --}}
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const sliders = document.querySelectorAll('.book-slider');
+
+        sliders.forEach(slider => {
+            const wrapper = slider.querySelector('.slider-wrapper');
+            const leftBtn = slider.querySelector('.left-arrow');
+            const rightBtn = slider.querySelector('.right-arrow');
+
+            if (leftBtn && wrapper) {
+                leftBtn.addEventListener('click', () => {
+                    // Rola a largura exata da tela visível (scroll inteligente)
+                    const scrollAmount = wrapper.clientWidth; 
+                    wrapper.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                });
+            }
+
+            if (rightBtn && wrapper) {
+                rightBtn.addEventListener('click', () => {
+                    const scrollAmount = wrapper.clientWidth;
+                    wrapper.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                });
+            }
+        });
+    });
+</script>
+
 @endsection

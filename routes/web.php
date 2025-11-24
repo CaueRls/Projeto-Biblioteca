@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomeController;
-
+use App\Http\Controllers\CartController;
 
 // --- PÁGINA INICIAL ---
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -44,3 +44,8 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::patch('/usuarios/{id}/status', [UserController::class, 'toggleStatus'])->name('admin.users.toggle');
 
 });
+
+
+Route::get('carrinho', [CartController::class, 'index'])->name('cart.index');
+Route::post('adicionar-ao-carrinho/{id}', [CartController::class, 'addToCart'])->name('cart.add');
+Route::delete('remover-do-carrinho', [CartController::class, 'remove'])->name('cart.remove');

@@ -30,7 +30,16 @@
                 @auth
                     {{-- Ícones normais --}}
                     <a href="#" aria-label="Lista de Desejos"><i class="fa-solid fa-heart"></i></a>
-                    <a href="#" aria-label="Carrinho de Compras"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a href="{{ route('cart.index') }}" aria-label="Carrinho de Compras" class="relative">
+                        <i class="fa-solid fa-cart-shopping"></i>
+    
+                        {{-- Contagem (Só mostra se tiver itens) --}}
+                    @if(session('cart'))
+                        <span class="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">
+                    {{ count(session('cart')) }}
+                        </span>
+                    @endif
+</a>
 
                     {{-- Botão de Sair --}}
                     <form action="{{ route('logout') }}" method="POST" style="display: inline;">
