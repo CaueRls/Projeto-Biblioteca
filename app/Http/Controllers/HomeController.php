@@ -37,4 +37,12 @@ class HomeController extends Controller
 
         return view('home', compact('livros', 'destaques'));
     }
+
+    public function show($id)
+    {
+        // Busca o livro com os relacionamentos
+        $product = Product::with(['author', 'genre', 'publisher'])->findOrFail($id);
+
+        return view('product.show', compact('product'));
+    }
 }

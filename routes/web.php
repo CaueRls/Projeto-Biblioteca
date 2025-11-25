@@ -11,6 +11,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // --- ACERVO ---
 Route::get('/acervo', [HomeController::class, 'index'])->name('livros.index');
+Route::get('/livro/{id}', [HomeController::class, 'show'])->name('product.show');
 
 // --- AUTENTICAÇÃO (GUEST - APENAS VISITANTES) ---
 Route::middleware('guest')->group(function () {
@@ -44,7 +45,6 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::patch('/usuarios/{id}/status', [UserController::class, 'toggleStatus'])->name('admin.users.toggle');
 
 });
-
 
 Route::get('carrinho', [CartController::class, 'index'])->name('cart.index');
 Route::post('adicionar-ao-carrinho/{id}', [CartController::class, 'addToCart'])->name('cart.add');

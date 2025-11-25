@@ -14,21 +14,23 @@ class CartController extends Controller
     }
 
     // 2. Adicionar Item ao Carrinho
-    public function addToCart($id)
+    public function addToCart(Request $request, $id)
     {
         $product = Product::findOrFail($id);
-
-        // Pega o carrinho atual da sessão
         $cart = session()->get('cart', []);
+        
+        // Define a quantidade: Se veio do formulário, usa ela. Se não, usa 1 (padrão).
+        $qtd = $request->input('quantity', 1);
 
-        // Se já existe, aumenta quantidade
+        // Garante que seja um número inteiro positivo
+        $qtd = max(1, intval($qtd));
+
         if(isset($cart[$id])) {
-            $cart[$id]['quantity']++;
+            $cart[$id]['quantity'] += $qtd; // Soma a quantidade escolhida
         } else {
-            // Se não, adiciona novo
             $cart[$id] = [
                 "name" => $product->titulo,
-                "quantity" => 1,
+                "quantity" => $qtd, // Usa a quantidade escolhida
                 "price" => $product->preco,
                 "image" => $product->imagem
             ];

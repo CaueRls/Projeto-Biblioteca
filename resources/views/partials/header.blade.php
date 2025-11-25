@@ -69,6 +69,7 @@
         </div>
     </header>
 
+    @if(Route::is('home'))
     <nav class="main-nav">
         <div class="container nav-container">
             <ul>
@@ -101,4 +102,6 @@
             </div>
         </div>
     </nav>
+
+    @endif
 </div>
