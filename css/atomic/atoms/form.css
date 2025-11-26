@@ -1,0 +1,16 @@
+/* Feedback de Erro */
+.input-error {
+    border-color: #e74c3c !important; /* Vermelho */
+    background-color: #fce4e4;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    display: none; /* Escondido por padrão */
+}
+
+.input-group.error .error-message {
+    display: block; /* Mostra quando tem erro */
+}
