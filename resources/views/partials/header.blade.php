@@ -50,6 +50,10 @@
                     @endif
                 </a>
 
+                <a href="{{ route('orders.index') }}" aria-label="Meus Pedidos" title="Meus Pedidos">
+                    <i class="fa-solid fa-box-open"></i>
+                </a>
+
                 {{-- Botão de Sair --}}
                 <form action="{{ route('logout') }}" method="POST" style="display: inline;">
                     @csrf

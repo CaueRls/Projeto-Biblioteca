@@ -5,6 +5,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\OrderController;
 
 // --- PÁGINA INICIAL ---
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -49,3 +51,12 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
 Route::get('carrinho', [CartController::class, 'index'])->name('cart.index');
 Route::post('adicionar-ao-carrinho/{id}', [CartController::class, 'addToCart'])->name('cart.add');
 Route::delete('remover-do-carrinho', [CartController::class, 'remove'])->name('cart.remove');
+
+
+
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+Route::post('/checkout/finalizar', [CheckoutController::class, 'store'])->name('checkout.store');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/meus-pedidos', [OrderController::class, 'index'])->name('orders.index');
+});
