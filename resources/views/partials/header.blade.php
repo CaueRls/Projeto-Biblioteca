@@ -37,7 +37,9 @@
                 {{-- Logado: Vê Favoritos, Carrinho e Sair --}}
                 @auth
                 {{-- Ícones normais --}}
-                <a href="#" aria-label="Lista de Desejos"><i class="fa-solid fa-heart"></i></a>
+                <a href="{{ route('favorites.index') }}" aria-label="Lista de Desejos" title="Meus Favoritos">
+                    <i class="fa-solid fa-heart"></i>
+                </a>
                 <a href="{{ route('cart.index') }}" aria-label="Carrinho de Compras" class="relative">
                     <i class="fa-solid fa-cart-shopping"></i>
 

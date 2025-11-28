@@ -55,6 +55,7 @@
         align-items: center;
         justify-content: center;
         margin-bottom: 20px;
+        position: relative; /* Importante para o botão flutuante */
     }
 
     .main-image {
@@ -62,6 +63,37 @@
         height: 100%;
         object-fit: contain; /* Mostra a capa inteira sem cortar */
         border-radius: 5px;
+    }
+
+    /* Botão Favorito Flutuante (Grande) */
+    .btn-fav-large {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: white;
+        border: 1px solid #e5e7eb;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: #ccc;
+        cursor: pointer;
+        transition: all 0.2s;
+        z-index: 10;
+    }
+    .btn-fav-large:hover {
+        transform: scale(1.1);
+        color: #ef4444;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+    .btn-fav-active {
+        color: #ef4444;
+        border-color: #fee2e2;
+        background-color: #fff1f2;
     }
 
     /* Miniaturas */
@@ -218,6 +250,23 @@
             <div class="product-gallery">
                 {{-- Imagem Grande com Borda --}}
                 <div class="main-image-box">
+                    
+                    {{-- BOTÃO FAVORITAR (NOVO!) --}}
+                    @auth
+                        @php
+                            // Lógica rápida para checar se é favorito direto na View
+                            $isFavorite = \App\Models\Favorite::where('user_id', Auth::id())
+                                ->where('product_id', $product->id)
+                                ->exists();
+                        @endphp
+                        <form action="{{ route('favorites.toggle', $product->id) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn-fav-large {{ $isFavorite ? 'btn-fav-active' : '' }}" title="{{ $isFavorite ? 'Remover dos Favoritos' : 'Adicionar aos Favoritos' }}">
+                                <i class="{{ $isFavorite ? 'fa-solid' : 'fa-regular' }} fa-heart"></i>
+                            </button>
+                        </form>
+                    @endauth
+
                     <img src="{{ $product->imagem }}" alt="{{ $product->titulo }}" class="main-image">
                 </div>
 
@@ -252,10 +301,10 @@
 
                 <div>
                     <h3 class="product-synopsis-title">Sinopse</h3>
-                        <p class="product-synopsis">
-                            {{-- Se tiver sinopse, mostra. Se não, mostra aviso. --}}
-                            {{ $product->sinopse ?? 'Sinopse não disponível para este livro.' }}
-                        </p>
+                    <p class="product-synopsis">
+                        {{-- Se tiver sinopse, mostra. Se não, mostra aviso. --}}
+                        {{ $product->sinopse ?? 'Sinopse não disponível para este livro.' }}
+                    </p>
                 </div>
 
                 <div>

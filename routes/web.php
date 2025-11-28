@@ -7,6 +7,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\AdminSearchController;
 
 // --- PÁGINA INICIAL ---
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -60,3 +62,11 @@ Route::post('/checkout/finalizar', [CheckoutController::class, 'store'])->name('
 Route::middleware(['auth'])->group(function () {
     Route::get('/meus-pedidos', [OrderController::class, 'index'])->name('orders.index');
 });
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/favoritos', [FavoriteController::class, 'index'])->name('favorites.index');
+    Route::post('/favoritos/toggle/{id}', [FavoriteController::class, 'toggle'])->name('favorites.toggle');
+});
+
+Route::get('/search', [AdminSearchController::class, 'search'])->name('admin.search');
