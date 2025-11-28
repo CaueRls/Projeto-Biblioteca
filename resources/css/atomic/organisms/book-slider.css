@@ -1,0 +1,62 @@
+/* resources/css/organisms/book-slider.css */
+
+.book-slider {
+    position: relative;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.slider-wrapper {
+    /* --- 1. DEFININDO A VARIÁVEL DE ESPAÇO --- */
+    /* Se você mudar aqui para 50px, os cards se recalculam sozinhos! */
+    --gap: 24px; 
+    
+    display: flex;
+    gap: var(--gap);      /* Usa a variável aqui */
+    
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px 5px;
+    
+    /* Garante que fiquem em linha */
+    flex-wrap: nowrap;    
+    align-items: stretch;
+    
+    /* Snap */
+    scroll-snap-type: x mandatory;
+    
+    /* Esconder scrollbar */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.slider-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+/* ... (O resto do CSS das setas .arrow-button continua igual ao seu) ... */
+.arrow-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: white;
+    border: 1px solid #ddd;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.arrow-button:hover {
+    background: #f8f9fa;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.left-arrow { left: -20px; }
+.right-arrow { right: -20px; }

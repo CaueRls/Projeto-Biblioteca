@@ -6,7 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $fillable = ['titulo', 'author_id', 'genre_id', 'publisher_id', 'imagem', 'preco', 'is_featured'];
+    protected $fillable = [
+    'titulo', 
+    'sinopse', // <--- ADICIONE AQUI
+    'author_id', 
+    'genre_id', 
+    'publisher_id', 
+    'imagem', 
+    'preco', 
+    'is_featured'
+    ];
 
     // Relação: Um produto PERTENCE a um Autor
     public function author()

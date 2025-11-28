@@ -15,6 +15,13 @@
                 class="w-full border border-gray-400 rounded p-2 focus:outline-none focus:border-blue-600">
         </div>
 
+
+        {{-- SINOPSE --}}
+        <div>
+            <label class="block text-gray-700 text-sm font-bold mb-2">Sinopse</label>
+            <textarea name="sinopse" rows="5" class="w-full border border-gray-400 rounded p-2 focus:outline-none focus:border-blue-600" placeholder="Escreva a descrição do livro aqui..."></textarea>
+        </div>
+
         {{-- Autor --}}
         <div>
             <label class="block text-gray-700 text-sm font-bold mb-2">Autor</label>
@@ -26,8 +33,6 @@
                 @endforeach
             </select>
         </div>
-
-        {{-- Gênero --}}
         {{-- GÊNERO --}}
         <div>
             <label class="block text-gray-700 text-sm font-bold mb-2">Gênero</label>
