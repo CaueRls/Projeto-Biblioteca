@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reset de Senha - SENAC Livraria</title>
+    <title>Redifina sua senha - SENAC Livraria</title>
     
     <link rel="stylesheet" href="css/style.css">
     
@@ -53,42 +53,44 @@
     </div>
 
     <main class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-md w-full bg-white rounded-xl shadow-lg p-8 space-y-6">
+    <div class="max-w-md w-full bg-white rounded-xl shadow-lg p-8 space-y-6">
+        
+        <div>
+            <h2 class="text-center text-3xl font-extrabold text-gray-900">
+                Esqueceu sua Senha?
+            </h2>
+            <p class="mt-2 text-center text-sm text-gray-600">
+                Informe seu e-mail para receber um link de redefinição.
+            </p>
+        </div>
+
+        <form id="forgotPasswordForm" class="space-y-6" action="#" method="POST">
             
             <div>
-                <h2 class="text-center text-3xl font-extrabold text-gray-900">
-                    Recuperação de senha
-                </h2>
-                <p class="mt-2 text-center text-sm text-gray-600">
-                    Informe o seu e-mail para recuperar sua senha.
-                </p>
+                <label for="email-address" class="block text-sm font-medium text-gray-700">E-mail</label>
+                <input id="email-address" name="email" type="email" autocomplete="email" required 
+                       class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
             </div>
 
-            <form class="space-y-6" action="#" method="POST">
-                
-
-                <div>
-                    <label for="email-address" class="block text-sm font-medium text-gray-700">E-mail</label>
-                    <input id="email-address" name="email" type="email" autocomplete="email" required class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
-                </div>
-
-                <div>
-                    <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-300">
-                        Enviar
-                    </button>
-                </div>
-            </form>
-
-            <div class="text-center">
-                <p class="text-sm text-gray-600">
-                    Já tem uma conta?
-                    <a href="#" class="font-medium text-blue-600 hover:text-blue-500 hover:underline">
-                        Faça login
-                    </a>
-                </p>
+            <div>
+                <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-300">
+                    Enviar Link de Redefinição
+                </button>
             </div>
+        </form>
+
+        <div class="text-center">
+            <p class="text-sm text-gray-600">
+                Lembrou sua senha?
+                <a href="#" class="font-medium text-blue-600 hover:text-blue-500 hover:underline">
+                    Faça login
+                </a>
+            </p>
         </div>
+    </div>
     </main>
+    <script src="/js/header.js"></script>
+    <script src="/js/header-wrapper.js"></script>
     
     <footer class="main-footer">
         </footer>
