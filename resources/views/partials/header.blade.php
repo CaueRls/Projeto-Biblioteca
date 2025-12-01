@@ -78,11 +78,40 @@
     @if(Route::is('home'))
     <nav class="main-nav">
         <div class="container nav-container">
-            <ul>
-                <li><a href="#">Fantasia</a></li>
-                <li><a href="#">Romance</a></li>
-                <li><a href="#">Terror</a></li>
-                <li><a href="#">Literatura</a></li>
+            <ul class="genre-list">
+                {{-- Link para limpar filtro --}}
+                <li>
+                    <a href="{{ route('home') }}" class="genre-link {{ !request('search') ? 'active' : '' }}">
+                        Todos
+                    </a>
+                </li>
+                
+                {{-- Links de Categorias (Filtram pela busca) --}}
+                <li>
+                    <a href="{{ route('home', ['search' => 'Fantasia']) }}" class="genre-link {{ request('search') == 'Fantasia' ? 'active' : '' }}">
+                        Fantasia
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('home', ['search' => 'Romance']) }}" class="genre-link {{ request('search') == 'Romance' ? 'active' : '' }}">
+                        Romance
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('home', ['search' => 'Terror']) }}" class="genre-link {{ request('search') == 'Terror' ? 'active' : '' }}">
+                        Terror
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('home', ['search' => 'Literatura Brasileira']) }}" class="genre-link {{ request('search') == 'Literatura Brasileira' ? 'active' : '' }}">
+                        Literatura
+                    </a>
+                </li>
+                 <li>
+                    <a href="{{ route('home', ['search' => 'Técnico']) }}" class="genre-link {{ request('search') == 'Técnico' ? 'active' : '' }}">
+                        Técnico
+                    </a>
+                </li>
             </ul>
 
             {{-- MOBILE --}}
