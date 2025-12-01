@@ -45,6 +45,8 @@
                         </div>
                     </td>
 
+                    
+
                     {{-- Título e Gênero --}}
                     <td class="py-3 px-6 text-left">
                         <div class="flex items-center">
@@ -54,8 +56,9 @@
                     </td>
 
                     {{-- Autor --}}
+                    
                     <td class="py-3 px-6 text-left">
-                        <span>{{ $product->autor }}</span>
+                        <span>{{ $product->author->name}}</span>
                     </td>
 
                     {{-- Preço --}}
