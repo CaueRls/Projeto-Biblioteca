@@ -9,6 +9,8 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\AdminSearchController;
+use Illuminate\Support\Facades\Auth;
+
 
 // --- PÁGINA INICIAL ---
 Route::get('/', [HomeController::class, 'index'])->name('home');
