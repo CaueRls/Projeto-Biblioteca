@@ -17,7 +17,7 @@ class UserController extends Controller
         // Se você mudou o nome do arquivo blade, ajuste aqui.
         // Se estiver na pasta auth: 'auth.register'
         // Se estiver solto: 'RegistroUsuario'
-        return view('RegistroUsuario'); 
+        return view('registroUsuario'); 
     }
 
     public function register(Request $request) {
