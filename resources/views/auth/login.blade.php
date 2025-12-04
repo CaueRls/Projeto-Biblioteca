@@ -51,7 +51,8 @@
                 </div>
 
                 <div class="text-sm">
-                    <a href="#" class="font-medium text-blue-600 hover:text-blue-500">
+                    {{-- AQUI ESTÁ O AJUSTE SOLICITADO --}}
+                   <a href="{{ route('password.request') }}" class="font-medium text-blue-600 hover:text-blue-500">
                         Esqueceu a senha?
                     </a>
                 </div>
